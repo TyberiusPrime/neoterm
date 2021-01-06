@@ -259,7 +259,7 @@ function! s:create_window(instance) abort
 
     let l:cmd = printf('%s %snew', a:instance.mod, g:neoterm_size)
     if a:instance.buffer_id > 0
-      let l:cmd .= printf(' +buffer%s', a:instance.buffer_id)
+      let l:cmd .= printf('| +buffer%s', a:instance.buffer_id)
     end
 
     exec l:cmd
@@ -272,7 +272,7 @@ function! s:create_window(instance) abort
   elseif get(a:instance, 'buffer_id', 0) > 0 && bufnr('') != a:instance.buffer_id
     exec printf('buffer %s', a:instance.buffer_id)
   else
-    enew
+    "enew
   end
 endfunction
 
